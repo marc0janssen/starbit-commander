@@ -29,14 +29,14 @@ function checkPositionSpaceship () {
 input.onButtonPressed(Button.A, function () {
     if (isCrashed == 0) {
         spaceship.change(LedSpriteProperty.X, -1)
+        checkPositionSpaceship()
     }
-    checkPositionSpaceship()
 })
 input.onButtonPressed(Button.B, function () {
     if (isCrashed == 0) {
         spaceship.change(LedSpriteProperty.X, 1)
+        checkPositionSpaceship()
     }
-    checkPositionSpaceship()
 })
 let astroidPosX = 0
 let astroidsEveryPosX: number[] = []
