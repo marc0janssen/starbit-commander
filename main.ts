@@ -27,11 +27,15 @@ function checkPositionSpaceship () {
     }
 }
 input.onButtonPressed(Button.A, function () {
-    spaceship.change(LedSpriteProperty.X, -1)
+    if (isCrashed == 0) {
+        spaceship.change(LedSpriteProperty.X, -1)
+    }
     checkPositionSpaceship()
 })
 input.onButtonPressed(Button.B, function () {
-    spaceship.change(LedSpriteProperty.X, 1)
+    if (isCrashed == 0) {
+        spaceship.change(LedSpriteProperty.X, 1)
+    }
     checkPositionSpaceship()
 })
 let astroidPosX = 0
