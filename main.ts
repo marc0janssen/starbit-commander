@@ -27,13 +27,13 @@ function checkPositionSpaceship () {
     }
 }
 input.onButtonPressed(Button.A, function () {
-    if (isCrashed == false) {
+    if (!(isCrashed)) {
         spaceship.change(LedSpriteProperty.X, -1)
         checkPositionSpaceship()
     }
 })
 input.onButtonPressed(Button.B, function () {
-    if (isCrashed == false) {
+    if (!(isCrashed)) {
         spaceship.change(LedSpriteProperty.X, 1)
         checkPositionSpaceship()
     }
@@ -65,7 +65,7 @@ spaceship.set(LedSpriteProperty.Blink, 0)
 game.setScore(0)
 music.playMelody("A F E F D G E F ", 120)
 basic.forever(function () {
-    if (isCrashed == false) {
+    if (!(isCrashed)) {
         while (astroids.length > 0 && astroids[0].get(LedSpriteProperty.Y) == 4) {
             astroids.removeAt(0).delete()
         }
