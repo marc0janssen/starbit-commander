@@ -17,7 +17,7 @@ function checkPositionSpaceship () {
                 spaceship.set(LedSpriteProperty.Blink, spaceshipNormal)
                 game.addScore(5)
             } else {
-                isCrashed = 1
+                isCrashed = true
                 spaceship.set(LedSpriteProperty.Blink, spaceshipCrash)
                 game.addScore(ticks)
                 music.playMelody("C D E C D C F E ", 120)
@@ -27,13 +27,13 @@ function checkPositionSpaceship () {
     }
 }
 input.onButtonPressed(Button.A, function () {
-    if (isCrashed == 0) {
+    if (isCrashed == false) {
         spaceship.change(LedSpriteProperty.X, -1)
         checkPositionSpaceship()
     }
 })
 input.onButtonPressed(Button.B, function () {
-    if (isCrashed == 0) {
+    if (isCrashed == false) {
         spaceship.change(LedSpriteProperty.X, 1)
         checkPositionSpaceship()
     }
@@ -44,7 +44,7 @@ let astroidsPerRow = 0
 let astriodInterval = 0
 let timer = 0
 let ticks = 0
-let isCrashed = 0
+let isCrashed = false
 let spaceshipCrash = 0
 let spaceshipNormal = 0
 let spaceshipBlinking = 0
@@ -57,7 +57,7 @@ astroidBlinking = 300
 spaceshipBlinking = 600
 spaceshipNormal = 0
 spaceshipCrash = 80
-isCrashed = 0
+isCrashed = false
 ticks = 0
 timer = 1000
 spaceship.set(LedSpriteProperty.Brightness, 255)
@@ -65,7 +65,7 @@ spaceship.set(LedSpriteProperty.Blink, 0)
 game.setScore(0)
 music.playMelody("A F E F D G E F ", 120)
 basic.forever(function () {
-    if (isCrashed == 0) {
+    if (isCrashed == false) {
         while (astroids.length > 0 && astroids[0].get(LedSpriteProperty.Y) == 4) {
             astroids.removeAt(0).delete()
         }
